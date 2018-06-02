@@ -1,8 +1,10 @@
 # SCILAB_MEX_TOOLBOX
 
 This is a part of my GSoC 2018 project where I have to create a working Demo for the MATLAB Mex module present within Scilab.
-Project Link : https://summerofcode.withgoogle.com/organizations/4726304075677696/#5732869570297856
-Scilab GSoC 2018: https://www.scilab.org/en/projects/gsoc/2018
+
+- Project Link : https://summerofcode.withgoogle.com/organizations/4726304075677696/#5732869570297856
+
+- Scilab GSoC 2018: https://www.scilab.org/en/projects/gsoc/2018
 
 The Matlab MEX-Files is an API which is a wrapper on the current API Scilab. This would make it very easy to port existing Matlab
 MEX toolboxes into Scilab. A module - "mexlib" is already present within Scilab which is compatible with the Matlab-Mex API. Currently
