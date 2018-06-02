@@ -1,7 +1,7 @@
 
 // Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
 //
-// Copyright (C) 2012 - 2018 - Scilab Enterprises
+// Copyright (C) 2018 - 2018 - Scilab Enterprises
 // Copyright (C) 2018 - 2018 - GSoC 2018 - Siddhartha Gairola
 //
 // This file is hereby licensed under the terms of the GNU GPL v2.0,

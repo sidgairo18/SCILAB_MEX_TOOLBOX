@@ -1,8 +1,8 @@
 
 // Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
-// Copyright (C) 2007-2008 - INRIA - Allan CORNET <allan.cornet@inria.fr>
 //
-// Copyright (C) 2012 - 2016 - Scilab Enterprises
+// Copyright (C) 2018 - 2018 - Scilab Enterprises
+// Copyright (C) 2018 - 2018 - GSoC 2018 - Siddhartha Gairola
 //
 // This file is hereby licensed under the terms of the GNU GPL v2.0,
 // pursuant to article 5.3.4 of the CeCILL v.2.1.
