@@ -3,7 +3,6 @@
 // Copyright (C) 2008 - INRIA
 //
 // Copyright (C) 2012 - 2016 - Scilab Enterprises
-// Copyright (C) 2018 - 2018 - GSoC 2018 - Siddhartha Gairola
 //
 // This file is hereby licensed under the terms of the GNU GPL v2.0,
 // pursuant to article 5.3.4 of the CeCILL v.2.1.
@@ -25,7 +24,7 @@ files = [];
 libs  = [];
 
 // table of (scilab_name,interface-name or mexfile-name, type)
-table =["sa","solid_angle","cmex"];
+table =["decimate","decimate_libigl","cmex"];
 
 if getos() <> "Windows" then
     if part(getenv("OSTYPE","no"),1:6)=="darwin" then
@@ -37,7 +36,7 @@ if getos() <> "Windows" then
         // Since linking is done by gcc and not g++
         // we must add the libstdc++ to cflags
         // an other possibility would be to use cflags="" and cc="
-        cflags = " -lstdc++ -std=c++11 -I/home/sid/Gsoc17/scilab_master/scilab/modules/mexlib/mex_toolboxes/Geometry_Processing_Toolbox/includes/libigl/include -I/home/sid/Gsoc17/scilab_master/scilab/usr/include"
+        cflags = " -lstdc++ -std=c++11 -I/usr/include/eigen3/ -I/home/sid/Gsoc17/scilab_master/scilab/modules/mexlib/mex_toolboxes/Geometry_Processing_Toolbox/includes/libigl/include -I/home/sid/Gsoc17/scilab_master/scilab/usr/include"
         fflags = "";
         ldflags= "";
         cc="";
