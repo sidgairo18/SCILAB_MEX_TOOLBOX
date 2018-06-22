@@ -1,0 +1,32 @@
+This is a list of the mex function files in the GP toolbox which will be ported.
+
+1. abmbient_occlusion.cpp
+2. bone_visible.cpp
+3. bone_visible_embree.cpp
+4. collapse_small_triangles.cpp
+5. decimate_cgal.cpp
+6. decimate_libigl.cpp - DONE
+7. eltopo.cpp
+8. fit_rotations_mex.cpp
+9. impaste.cpp
+10. in_element_aabb.cpp
+11. intersect_other.cpp
+12. mesh_boolean.cpp
+13. outer_hull.cpp
+14. point_mesh_squared_distance.cpp
+15. ray_mesh_intersect.cpp
+16. readMSH.cpp
+17. read_mesh_from_xml.cpp
+18. read_traingle_mesh.cpp
+19. reorient_facets.cpp
+20. segment_graph.cpp
+21. selfintersect.cpp
+22. signed_distance.cpp - DONE
+23. signed_distance_isosurface.cpp
+24. simplify_polyhedron.cpp
+25. slim.cpp - DONE
+26. snap_rounding.cpp
+27. solid_angle.cpp - DONE
+28. trim_with_solid.cpp - DONE
+29. winding_number.cpp
+30. wire_mesh.cpp - DONE
