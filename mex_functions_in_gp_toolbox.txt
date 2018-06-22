@@ -24,7 +24,7 @@ This is a list of the mex function files in the GP toolbox which will be ported.
 22. signed_distance.cpp - DONE
 23. signed_distance_isosurface.cpp
 24. simplify_polyhedron.cpp
-25. slim.cpp - DONE
+25. slim.cpp - DONE (partially)
 26. snap_rounding.cpp
 27. solid_angle.cpp - DONE
 28. trim_with_solid.cpp - DONE
