@@ -12,7 +12,7 @@ This is a list of the mex function files in the GP toolbox which will be ported.
 10. in_element_aabb.cpp
 11. intersect_other.cpp
 12. mesh_boolean.cpp
-13. outer_hull.cpp
+13. outer_hull.cpp - DONE (partially) - (incomplete linking)
 14. point_mesh_squared_distance.cpp
 15. ray_mesh_intersect.cpp
 16. readMSH.cpp
