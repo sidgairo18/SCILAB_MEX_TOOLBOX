@@ -6,3 +6,4 @@ Dependencies -
 - CAGL (BOOST)
     - libgmp-dev
     - libmpfr-dev
+- El Topo
