@@ -22,7 +22,7 @@ This is a list of the mex function files in the GP toolbox which will be ported.
 20. segment_graph.cpp - DONE
 21. selfintersect.cpp
 22. signed_distance.cpp - DONE
-23. signed_distance_isosurface.cpp
+23. signed_distance_isosurface.cpp - DONE (partially) - (incomplete linking) Requires - CGAL
 24. simplify_polyhedron.cpp
 25. slim.cpp - DONE (partially) - (builder error)
 26. snap_rounding.cpp
