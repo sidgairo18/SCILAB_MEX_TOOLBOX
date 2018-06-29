@@ -19,7 +19,7 @@ This is a list of the mex function files in the GP toolbox which will be ported.
 17. read_mesh_from_xml.cpp
 18. read_traingle_mesh.cpp - DONE
 19. reorient_facets.cpp
-20. segment_graph.cpp
+20. segment_graph.cpp - DONE
 21. selfintersect.cpp
 22. signed_distance.cpp - DONE
 23. signed_distance_isosurface.cpp
