@@ -3,7 +3,7 @@ This is a list of the mex function files in the GP toolbox which will be ported.
 1. abmbient_occlusion.cpp
 2. bone_visible.cpp
 3. bone_visible_embree.cpp
-4. collapse_small_triangles.cpp
+4. collapse_small_triangles.cpp - DONE - (incomplete linking)
 5. decimate_cgal.cpp
 6. decimate_libigl.cpp - DONE
 7. eltopo.cpp - DONE (partially) - (incomplete linking) - Link with the eltopo library.
