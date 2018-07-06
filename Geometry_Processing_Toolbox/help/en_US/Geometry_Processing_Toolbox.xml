@@ -87,6 +87,9 @@
 
         <simplelist type="inline">
             <member>
+                <ulink url="https://github.com/alecjacobson/gptoolbox">Geometry Processing Toolbox</ulink>
+            </member>
+            <member>
                 <link linkend="ilib_mex_build">ilib_mex_build</link>
             </member>
             <member>
