@@ -23,7 +23,13 @@ files = [];
 libs  = [];
 
 // table of (scilab_name,interface-name or mexfile-name, type)
-table =["decimate","decimate_libigl","cmex"];
+table =[    "dec_lib"    ,  "decimate_libigl"   ,   "cmex";
+            "rea_tri_mes",  "read_triangle_mesh",   "cmex";
+            "seg_graph"  ,  "segment_graph"     ,   "cmex"; 
+            "sol_ang"    ,  "solid_angle"       ,   "cmex";
+            "tri_wit_sol",  "trim_with_solid"   ,   "cmex";
+            "wir_mes"    ,  "wire_mesh"         ,   "cmex";
+ ];
 
 if getos() <> "Windows" then
     if part(getenv("OSTYPE","no"),1:6)=="darwin" then
@@ -35,9 +41,9 @@ if getos() <> "Windows" then
         // Since linking is done by gcc and not g++
         // we must add the libstdc++ to cflags
         // an other possibility would be to use cflags="" and cc="
-        cflags = " -lstdc++ -std=c++11 -I/usr/include/eigen3/ -I/home/sid/Gsoc17/scilab_master/scilab/modules/mexlib/mex_toolboxes/Geometry_Processing_Toolbox/includes/libigl/include -I/home/sid/Gsoc17/scilab_master/scilab/usr/include"
+        cflags = " -lstdc++ -std=c++11 -I/home/sid/Gsoc17/eltopo/eltopo3d -I/usr/include/eigen3/ -I/usr/include/CGAL/ -I/home/sid/Gsoc17/demo_current_ongoing/mex_toolboxes/Geometry_Processing_Toolbox/includes/libigl/include -I/home/sid/Gsoc17/scilab_master/scilab/usr/include"
         fflags = "";
-        ldflags= "";
+        ldflags= "-L/usr/lib/ -L/usr/lib/CGAL/";
         cc="";
     end
 else
