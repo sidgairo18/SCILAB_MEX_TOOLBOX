@@ -1,21 +1,21 @@
 This is a list of the mex function files in the GP toolbox which will be ported.
 
-1. abmbient_occlusion.cpp
-2. bone_visible.cpp
-3. bone_visible_embree.cpp
+1. abmbient_occlusion.cpp - (locally present)
+2. bone_visible.cpp - (locally present)
+3. bone_visible_embree.cpp - (locally present)
 4. collapse_small_triangles.cpp - DONE - (incomplete linking)
-5. decimate_cgal.cpp
+5. decimate_cgal.cpp - (locally present)
 6. decimate_libigl.cpp - DONE
 7. eltopo.cpp - DONE (partially) - (incomplete linking) - Link with the eltopo library.
 8. fit_rotations_mex.cpp - DONE (partially) - (incomplete linking)
 9. impaste.cpp - DONE (partially) - (incomplete linking)
-10. in_element_aabb.cpp
-11. intersect_other.cpp
+10. in_element_aabb.cpp - DONE (partially) - (incomplete linking)
+11. intersect_other.cpp - (locally present)
 12. mesh_boolean.cpp - DONE (partially) - (incomplete linking)
 13. outer_hull.cpp - DONE (partially) - (incomplete linking)
-14. point_mesh_squared_distance.cpp
-15. ray_mesh_intersect.cpp
-16. readMSH.cpp
+14. point_mesh_squared_distance.cpp - (locally present)
+15. ray_mesh_intersect.cpp - (locally present)
+16. readMSH.cpp - DONE
 17. read_mesh_from_xml.cpp
 18. read_traingle_mesh.cpp - DONE
 19. reorient_facets.cpp
