@@ -23,19 +23,30 @@ files = [];
 libs  = [];
 
 // table of (scilab_name,interface-name or mexfile-name, type)
-table =[    "col_sma_tri",  "collapse_small_triangles"  , "cmex";
-            "dec_lib"    ,  "decimate_libigl"           , "cmex";
-            "fit_rot_mex",  "fit_rotations_mex"         , "cmex";
-            "imp"        ,  "impaste"                   , "cmex";
-            "mes_boo"    ,  "mesh_boolean"              , "cmex";
-            "out_hul"    ,  "outer_hull"                , "cmex";
-            "rea_tri_mes",  "read_triangle_mesh"        , "cmex";
-            "seg_graph"  ,  "segment_graph"             , "cmex"; 
-            "sig_dis"    ,  "signed_distance"           , "cmex"; 
-            "sig_dis_iso",  "signed_distance_isosurface", "cmex"; 
-            "sol_ang"    ,  "solid_angle"               , "cmex";
-            "wir_mes"    ,  "wire_mesh"                 , "cmex";
+table =[    "amb_occ"        ,  "ambient_occlusion"         , "cmex";
+            "bon_vis"        ,  "bone_visible"              , "cmex";
+            "bon_vis_emb"    ,  "bone_visible_embree"       , "cmex";
+            "col_sma_tri"    ,  "collapse_small_triangles"  , "cmex";
+            "dec_lib"        ,  "decimate_libigl"           , "cmex";
+            "elt"            ,  "eltopo"                    , "cmex";
+            "fit_rot_mex"    ,  "fit_rotations_mex"         , "cmex";
+            "imp"            ,  "impaste"                   , "cmex";
+            "in_ele_aab"     ,  "in_element_aabb"           , "cmex";
+            "mes_boo"        ,  "mesh_boolean"              , "cmex";
+            "out_hul"        ,  "outer_hull"                , "cmex";
+            "rea_MSH"        ,  "readMSH"                   , "cmex";
+            "rea_mes_fro_xml",  "read_mesh_from_xml"        , "cmex";
+            "rea_tri_mes"    ,  "read_triangle_mesh"        , "cmex";
+            "seg_graph"      ,  "segment_graph"             , "cmex"; 
+            "sig_dis"        ,  "signed_distance"           , "cmex"; 
+            "sig_dis_iso"    ,  "signed_distance_isosurface", "cmex"; 
+            "sim_pol"        ,  "simplify_polyhedron"       , "cmex"; 
+            "sol_ang"        ,  "solid_angle"               , "cmex";
+            "win_num"        ,  "winding_number"            , "cmex";
+            "wir_mes"        ,  "wire_mesh"                 , "cmex";
  ];
+
+no_of_files = size(table)(1)
 
 if getos() <> "Windows" then
     if part(getenv("OSTYPE","no"),1:6)=="darwin" then
@@ -62,4 +73,4 @@ end
 
 // do not modify below
 // ----------------------------------------------
-ilib_mex_build(ilib_name,table,files,libs,"",ldflags,cflags,fflags)
+ilib_mex_build(ilib_name,table(4:no_of_files,:),files,libs,"",ldflags,cflags,fflags)
