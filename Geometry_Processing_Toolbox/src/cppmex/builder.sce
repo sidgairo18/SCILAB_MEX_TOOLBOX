@@ -23,12 +23,18 @@ files = [];
 libs  = [];
 
 // table of (scilab_name,interface-name or mexfile-name, type)
-table =[    "dec_lib"    ,  "decimate_libigl"   ,   "cmex";
-            "rea_tri_mes",  "read_triangle_mesh",   "cmex";
-            "seg_graph"  ,  "segment_graph"     ,   "cmex"; 
-            "sol_ang"    ,  "solid_angle"       ,   "cmex";
-            "tri_wit_sol",  "trim_with_solid"   ,   "cmex";
-            "wir_mes"    ,  "wire_mesh"         ,   "cmex";
+table =[    "col_sma_tri",  "collapse_small_triangles"  , "cmex";
+            "dec_lib"    ,  "decimate_libigl"           , "cmex";
+            "fit_rot_mex",  "fit_rotations_mex"         , "cmex";
+            "imp"        ,  "impaste"                   , "cmex";
+            "mes_boo"    ,  "mesh_boolean"              , "cmex";
+            "out_hul"    ,  "outer_hull"                , "cmex";
+            "rea_tri_mes",  "read_triangle_mesh"        , "cmex";
+            "seg_graph"  ,  "segment_graph"             , "cmex"; 
+            "sig_dis"    ,  "signed_distance"           , "cmex"; 
+            "sig_dis_iso",  "signed_distance_isosurface", "cmex"; 
+            "sol_ang"    ,  "solid_angle"               , "cmex";
+            "wir_mes"    ,  "wire_mesh"                 , "cmex";
  ];
 
 if getos() <> "Windows" then
@@ -43,7 +49,8 @@ if getos() <> "Windows" then
         // an other possibility would be to use cflags="" and cc="
         cflags = " -lstdc++ -std=c++11 -I/home/sid/Gsoc17/eltopo/eltopo3d -I/usr/include/eigen3/ -I/usr/include/CGAL/ -I/home/sid/Gsoc17/demo_current_ongoing/mex_toolboxes/Geometry_Processing_Toolbox/includes/libigl/include -I/home/sid/Gsoc17/scilab_master/scilab/usr/include"
         fflags = "";
-        ldflags= "-L/usr/lib/ -L/usr/lib/CGAL/";
+        //ldflags= "-L/usr/lib/ -L/usr/lib/CGAL/";
+        ldflags = "";
         cc="";
     end
 else

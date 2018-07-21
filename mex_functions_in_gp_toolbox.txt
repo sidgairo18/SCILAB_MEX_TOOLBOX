@@ -21,12 +21,12 @@ This is a list of the mex function files in the GP toolbox which will be ported.
 19. reorient_facets.cpp
 20. segment_graph.cpp - DONE
 21. selfintersect.cpp
-22. signed_distance.cpp - DONE
+22. signed_distance.cpp - DONE (incomplete linking)
 23. signed_distance_isosurface.cpp - DONE (partially) - (incomplete linking) Requires - CGAL
 24. simplify_polyhedron.cpp
 25. slim.cpp - DONE (partially) - (builder error)
 26. snap_rounding.cpp
 27. solid_angle.cpp - DONE
-28. trim_with_solid.cpp - DONE
+28. trim_with_solid.cpp - (builder error)
 29. winding_number.cpp
 30. wire_mesh.cpp - DONE
