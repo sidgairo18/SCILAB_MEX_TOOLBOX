@@ -16,17 +16,17 @@ This is a list of the mex function files in the GP toolbox which will be ported.
 14. point_mesh_squared_distance.cpp - (locally present)
 15. ray_mesh_intersect.cpp - (locally present)
 16. readMSH.cpp - DONE
-17. read_mesh_from_xml.cpp
+17. read_mesh_from_xml.cpp - DONE - (incomplete linking)
 18. read_traingle_mesh.cpp - DONE
-19. reorient_facets.cpp
+19. reorient_facets.cpp - (locally present) - Depends on embree
 20. segment_graph.cpp - DONE
-21. selfintersect.cpp
+21. selfintersect.cpp - (locally present) - That cgal error
 22. signed_distance.cpp - DONE (incomplete linking)
 23. signed_distance_isosurface.cpp - DONE (partially) - (incomplete linking) Requires - CGAL
-24. simplify_polyhedron.cpp
+24. simplify_polyhedron.cpp - DONE
 25. slim.cpp - DONE (partially) - (builder error)
-26. snap_rounding.cpp
+26. snap_rounding.cpp - (locally present) - That cgal error
 27. solid_angle.cpp - DONE
 28. trim_with_solid.cpp - (builder error)
-29. winding_number.cpp
+29. winding_number.cpp - DONE - (incomplete linking) - Depends on embree
 30. wire_mesh.cpp - DONE
