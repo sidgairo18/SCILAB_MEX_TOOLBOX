@@ -48,28 +48,14 @@ table =[    "amb_occ"        ,  "ambient_occlusion"         , "cmex";
 
 no_of_files = size(table)(1)
 
-if getos() <> "Windows" then
-    if part(getenv("OSTYPE","no"),1:6)=="darwin" then
-        cflags = ""
-        fflags = "";
-        ldflags= "";
-        cc = "g++";
-    else
-        // Since linking is done by gcc and not g++
-        // we must add the libstdc++ to cflags
-        // an other possibility would be to use cflags="" and cc="
-        cflags = " -lstdc++ -std=c++11 -I/home/sid/Gsoc17/eltopo/eltopo3d -I/usr/include/eigen3/ -I/usr/include/CGAL/ -I/home/sid/Gsoc17/demo_current_ongoing/mex_toolboxes/Geometry_Processing_Toolbox/includes/libigl/include -I/home/sid/Gsoc17/scilab_master/scilab/usr/include"
-        fflags = "";
-        //ldflags= "-L/usr/lib/ -L/usr/lib/CGAL/";
-        ldflags = "";
-        cc="";
-    end
-else
-    cflags = ""
-    fflags = "";
-    ldflags= "";
-    cc = "";
-end
+// Since linking is done by gcc and not g++
+// we must add the libstdc++ to cflags
+// an other possibility would be to use cflags="" and cc="
+cflags = " -lstdc++ -std=c++11 -I/home/sid/Gsoc17/eltopo/eltopo3d -I/usr/include/eigen3/ -I/usr/include/CGAL/ -I/home/sid/Gsoc17/demo_current_ongoing/mex_toolboxes/Geometry_Processing_Toolbox/includes/libigl/include -I/home/sid/Gsoc17/scilab_master/scilab/usr/include"
+fflags = "";
+//ldflags= "-L/usr/lib/ -L/usr/lib/CGAL/";
+ldflags = "";
+cc="";
 
 // do not modify below
 // ----------------------------------------------
