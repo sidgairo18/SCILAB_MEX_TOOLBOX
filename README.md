@@ -17,7 +17,7 @@ For this we have selected the following toolbox - https://github.com/alecjacobso
 
 This project would be divided into the following 3 parts - 
 - Working demo in Scilab which is compatible with the Scilab Mex.
-- Written Nots/Documentation (basically a help system) of how to run the Demo
+- Written Notes/Documentation (basically a help system) of how to run the Demo
 - Ensure most function implementations are complete and add test coverage for the mexlib module.
 
 Finally the project will be pushed on Gerrit CodeReview where all the Scilab Development takes place.
