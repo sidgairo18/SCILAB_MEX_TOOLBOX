@@ -34,7 +34,7 @@
     <refsection>
         <title>How to</title>
 
-        <para>Most of the mex files will depend on libigl. Some depend on cgal and embree. The mex functions must be compiled before they can be clled from matlab. Typically the C++ code for function myfunc will be in a file called myfunc.cpp and accompanied by a blank file myfunc.sci, which simply contains comments explaining call usage of the function. Here is a small example (call it example.c):</para>
+        <para>Most of the mex files will depend on libigl. Some depend on cgal and embree. The mex functions must be compiled before they can be called from Scilab. Typically the C++ code for function myfunc will be in a file called myfunc.cpp and accompanied by a blank file myfunc.sci, which simply contains comments explaining call usage of the function. Here is a small example (call it example.c):</para>
 
         <programlisting><![CDATA[
             SIGNED_DISTANCE Compute signed distance from points P to a mesh (V,F)
