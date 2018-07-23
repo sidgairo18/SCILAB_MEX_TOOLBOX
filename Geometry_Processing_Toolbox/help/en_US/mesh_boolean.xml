@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+* Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+* Copyright (C) 2018 - 2018 - Scilab Enterprises
+* Copyright (C) 2018-2018 - Siddhartha Gairola GSoC 2018
+*
+* This file is hereby licensed under the terms of the GNU GPL v2.0,
+* pursuant to article 5.3.4 of the CeCILL v.2.1.
+* This file was originally licensed under the terms of the CeCILL v2.1,
+* and continues to be available under such terms.
+* For more information, see the COPYING file which you should have received
+* along with this program.
+*
+-->
+<refentry xml:id="mesh_boolean" xml:lang="en"
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:ns5="http://www.w3.org/1999/xhtml"
+    xmlns:mml="http://www.w3.org/1998/Math/MathML"
+    xmlns:db="http://docbook.org/ns/docbook">
+    <info>
+        <pubdate>$LastChangedDate$</pubdate>
+    </info>
+
+    <refnamediv>
+        <refname>Mesh Boolean</refname>
+
+        <refpurpose>
+             Compute boolean csg operations on "solid", consistently oriented meshes.
+        </refpurpose>
+    </refnamediv>
+
+    <refsynopsisdiv>
+        <title>Syntax</title>
+        <synopsis>
+            [W,H] = mesh_boolean(V,F,U,G,operation)
+            [W,H] = mesh_boolean(V,F,U,G,operation,'ParameterName',paramter_value, ...)
+            [W,H] = mesh_boolean({V1,V2,..,Vn},{F1,F2,...,Fn}, operation,'ParameterName',paramter_value, ...)
+        </synopsis>
+    </refsynopsisdiv>
+
+    <refsection>
+        <title>Arguments</title>
+        <variablelist>
+            <varlistentry>
+                <term>V</term>
+                <listitem>
+                    <para>#V by 3 list of vertex positions of first mesh</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>F</term>
+                <listitem>
+                    <para>#F by 3 list of triangle indices into V</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>U</term>
+                <listitem>
+                    <para>#U by 3 list of vertex positions of second mesh</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>G</term>
+                <listitem>
+                    <para>#G by 3 list of triangle indices into U</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>operation</term>
+                <listitem>
+                    <para>followed by operation to perform as a string, one of: 'union', 'intersect', 'minus', 'xor', or 'resolve'</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </refsection>
+
+    <refsection>
+        <title>Optional</title>
+        <variablelist>
+            <varlistentry>
+                <term>'BooleanLib'</term>
+                <listitem>
+                    <para>'BooleanLib' followed by boolean library back-end to use, one of:</para>
+                    <para>{'libigl'}  uses CGAL's exact arithmetic kernel and is believed to be correct.</para>
+                    <para>'cork'  is faster but may give incorrect results.</para>
+                    <para>'libigl-try-cork-resolve'  libigl boolean extraction but tries to use cork's fast resolve, if intersections persist, then resolves remaining with libigl's resolve. This adds a "layer of robustness" on top of cork, but since it's not understood _how_ cork is failing, it is unknown whether this will lead to correct results.</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </refsection>
+
+    <refsection>
+        <title>Output</title>
+        <variablelist>
+            <varlistentry>
+                <term>W</term>
+                <listitem>
+                    <para>#W by 3 list of vertex positions of boolean result mesh</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>H</term>
+                <listitem>
+                    <para>#H by 3 list of triangle indices into W</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>J</term>
+                <listitem>
+                    <para>#H list of indices into [FA;FB] of facet birth parents</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </refsection>
+
+    <refsection>
+        <title>Description></title>
+        <para>Compute boolean csg operations on "solid", consistently oriented meshes.</para>
+    </refsection>
+
+
+    <refsection role="see also">
+        <title>See also</title>
+
+        <simplelist type="inline">
+            <member>
+                <ulink url="https://github.com/alecjacobson/gptoolbox">Geometry Processing Toolbox</ulink>
+            </member>
+            <member>
+                <link linkend="geoemtry_processing_toolbox">Geometry_Processing_Toolbox</link>
+            </member>
+        </simplelist>
+    </refsection>
+    
+</refentry>
