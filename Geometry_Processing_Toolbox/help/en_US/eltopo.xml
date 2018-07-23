@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+* Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+* Copyright (C) 2018 - 2018 - Scilab Enterprises
+* Copyright (C) 2018-2018 - Siddhartha Gairola GSoC 2018
+*
+* This file is hereby licensed under the terms of the GNU GPL v2.0,
+* pursuant to article 5.3.4 of the CeCILL v.2.1.
+* This file was originally licensed under the terms of the CeCILL v2.1,
+* and continues to be available under such terms.
+* For more information, see the COPYING file which you should have received
+* along with this program.
+*
+-->
+<refentry xml:id="eltopo" xml:lang="en"
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:ns5="http://www.w3.org/1999/xhtml"
+    xmlns:mml="http://www.w3.org/1998/Math/MathML"
+    xmlns:db="http://docbook.org/ns/docbook">
+    <info>
+        <pubdate>$LastChangedDate$</pubdate>
+    </info>
+
+    <refnamediv>
+        <refname>Eltopo</refname>
+
+        <refpurpose>
+            Uses Eltopo library to find new vertex positions. See Description for more details.
+        </refpurpose>
+    </refnamediv>
+
+    <refsynopsisdiv>
+        <title>Syntax</title>
+        <synopsis>
+            [U,G,t] = eltopo(V0,F,V1)
+        </synopsis>
+    </refsynopsisdiv>
+
+    <refsection>
+        <title>Arguments</title>
+        <variablelist>
+            <varlistentry>
+                <term>V0</term>
+                <listitem>
+                    <para>#V by 3 list of input vertex positions at "time t=0"</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>F</term>
+                <listitem>
+                    <para>#F by 3 list of triangles indices into V0</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>V1</term>
+                <listitem>
+                    <para>#V by 3 list of desired output vertex positions at "time t=1"</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </refsection>
+
+    <refsection>
+        <title>Output</title>
+        <variablelist>
+            <varlistentry>
+                <term>U</term>
+                <listitem>
+                    <para>#U by 3 list of self-intersection free vertex positions at "time t=1"</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>G</term>
+                <listitem>
+                    <para>#G by 3 list of triangles indices into U</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>t</term>
+                <listitem>
+                    <para>time step actually achieved (t=1 on success, t=0 on failure)</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </refsection>
+    
+    <refsection>
+        <title>Description></title>
+        <para>ELTOPO Given a surface mesh (V0,F) in a self-intersecting state (may be many connected components) and desired new vertex positions (potentially causing self-intersections or "tunneling"), use EL TOPO's implementation of "ROBUST TOPOLOGICAL OPERATIONS FOR DYNAMIC EXPLICIT SURFACES" [Brochu & Bridson, 2009] to find new vertex positions U and possibly new combinatorics G resolving those collisions.</para>
+    </refsection>
+
+    <refsection role="see also">
+        <title>See also</title>
+
+        <simplelist type="inline">
+            <member>
+                <ulink url="https://github.com/alecjacobson/gptoolbox">Geometry Processing Toolbox</ulink>
+            </member>
+            <member>
+                <link linkend="geoemtry_processing_toolbox">Geometry_Processing_Toolbox</link>
+            </member>
+        </simplelist>
+    </refsection>
+    
+</refentry>
