@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+* Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+* Copyright (C) 2018 - 2018 - Scilab Enterprises
+* Copyright (C) 2018-2018 - Siddhartha Gairola GSoC 2018
+*
+* This file is hereby licensed under the terms of the GNU GPL v2.0,
+* pursuant to article 5.3.4 of the CeCILL v.2.1.
+* This file was originally licensed under the terms of the CeCILL v2.1,
+* and continues to be available under such terms.
+* For more information, see the COPYING file which you should have received
+* along with this program.
+*
+-->
+<refentry xml:id="point_mesh_squared_distance" xml:lang="en"
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:ns5="http://www.w3.org/1999/xhtml"
+    xmlns:mml="http://www.w3.org/1998/Math/MathML"
+    xmlns:db="http://docbook.org/ns/docbook">
+    <info>
+        <pubdate>$LastChangedDate$</pubdate>
+    </info>
+
+    <refnamediv>
+        <refname>Point Mesh Squared Distance</refname>
+
+        <refpurpose>
+            Compute distances from a set of points P to a triangle mesh (V,F)
+        </refpurpose>
+    </refnamediv>
+
+    <refsynopsisdiv>
+        <title>Syntax</title>
+        <synopsis>
+            [sqrD,I,C] = point_mesh_squared_distance(P,V,F);
+        </synopsis>
+    </refsynopsisdiv>
+
+    <refsection>
+        <title>Arguments</title>
+        <variablelist>
+            <varlistentry>
+                <term>P</term>
+                <listitem>
+                    <para>#P by 3 list of query point positions</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>V</term>
+                <listitem>
+                    <para>#V by 3 list of vertex positions</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>F</term>
+                <listitem>
+                    <para>#F by (3|2|1) list of triangle|edge|point indices</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </refsection>
+
+    <refsection>
+        <title>Output</title>
+        <variablelist>
+            <varlistentry>
+                <term>sqrD</term>
+                <listitem>
+                    <para>#P list of smallest squared distances</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>I</term>
+                <listitem>
+                    <para>#P list of facet indices corresponding to smallest distances</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>C</term>
+                <listitem>
+                    <para>#P by 3 list of closest points</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </refsection>
+
+    <refsection>
+        <title>Known Bugs</title>
+        <para>This only computes distances to given primitives. So unreferenced vertices are ingnored.</para>
+    </refsection>
+    
+    <refsection>
+        <title>Description></title>
+        <para>Compute distances from a set of points P to a triangle mesh (V,F)</para>
+    </refsection>
+
+    <refsection>
+        <title>Examples</title>      
+        <para>Example showing the use of Point Mesh Squared Distance.</para>
+        <programlisting><![CDATA[
+            [sqrD,I,C] = point_mesh_squared_distance(P,V,F);
+            B = barycentric_coordinates(C,V(F(I,1),:),V(F(I,2),:),V(F(I,3),:));
+            on_face = sum(B<1e-15)==0;
+            on_edge = sum(B<1e-15)==1;
+            on_vertex = sum(B<1e-15)==2;
+            N_face = normalizerows(normals(F));
+            N_vertex = per_vertex_normals(V,F);
+            ]]></programlisting>
+    </refsection>
+
+    <refsection role="see also">
+        <title>See also</title>
+
+        <simplelist type="inline">
+            <member>
+                <ulink url="https://github.com/alecjacobson/gptoolbox">Geometry Processing Toolbox</ulink>
+            </member>
+            <member>
+                <link linkend="geoemtry_processing_toolbox">Geometry_Processing_Toolbox</link>
+            </member>
+        </simplelist>
+    </refsection>
+    
+</refentry>

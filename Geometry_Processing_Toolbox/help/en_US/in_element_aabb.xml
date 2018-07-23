@@ -124,7 +124,7 @@
 
     <refsection>
         <title>Examples</title>      
-        <para>Example showing the use of Ambient Occlusion.</para>
+        <para>Example showing the use of In Element AABB.</para>
         <programlisting><![CDATA[
         //Dummy data
         aabbn = [];

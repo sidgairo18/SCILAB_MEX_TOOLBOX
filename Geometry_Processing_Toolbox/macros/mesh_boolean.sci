@@ -1,26 +1,33 @@
-% Compute distances from a set of points P to a triangle mesh (V,F)
+% MESH_BOOLEAN Compute boolean csg operations on "solid", consistently oriented
+% meshes.
+%
+% [W,H] = mesh_boolean(V,F,U,G,operation)
+% [W,H] = mesh_boolean(V,F,U,G,operation,'ParameterName',paramter_value, ...)
+% [W,H] = mesh_boolean({V1,V2,..,Vn},{F1,F2,...,Fn}, ...
+%    operation,'ParameterName',paramter_value, ...)
 % 
-% [sqrD,I,C] = point_mesh_squared_distance(P,V,F);
-%
 % Inputs:
-%   P  #P by 3 list of query point positions
-%   V  #V by 3 list of vertex positions
-%   F  #F by (3|2|1) list of triangle|edge|point indices
+%   V  #V by 3 list of vertex positions of first mesh
+%   F  #F by 3 list of triangle indices into V
+%   U  #U by 3 list of vertex positions of second mesh
+%   G  #G by 3 list of triangle indices into U
+%   operation  followed by operation to perform as a string, one of: 'union',
+%     'intersect', 'minus', 'xor', or 'resolve'
+%     Optional:
+%       'BooleanLib' followed by boolean library back-end to use, one of:
+%         {'libigl'}  uses CGAL's exact arithmetic kernel and is believed to be
+%                     correct.
+%         'cork'  is faster but may give incorrect results. 
+%         'libigl-try-cork-resolve'  libigl boolean extraction but tries to use
+%                                    cork's fast resolve, if intersections
+%                                    persist, then resolves remaining with
+%                                    libigl's resolve. This adds a "layer of
+%                                    robustness" on top of cork, but since it's
+%                                    not understood _how_ cork is failing, it
+%                                    is unknown whether this will lead to
+%                                    correct results.
 % Outputs:
-%   sqrD  #P list of smallest squared distances
-%   I  #P list of facet indices corresponding to smallest distances
-%   C  #P by 3 list of closest points
-%
-% Known bugs: This only computes distances to given primitives. So unreferenced
-% vertices are ignored.
-%
-% Examples:
-%   [sqrD,I,C] = point_mesh_squared_distance(P,V,F);
-%   B = barycentric_coordinates(C,V(F(I,1),:),V(F(I,2),:),V(F(I,3),:));
-%   on_face = sum(B<1e-15)==0;
-%   on_edge = sum(B<1e-15)==1;
-%   on_vertex = sum(B<1e-15)==2;
-%   N_face = normalizerows(normals(F));
-%   N_vertex = per_vertex_normals(V,F);
-%   per_edge_normals
-%
+%   W  #W by 3 list of vertex positions of boolean result mesh
+%   H  #H by 3 list of triangle indices into W
+%   J  #H list of indices into [FA;FB] of facet birth parents
+% See also: self_intersect
