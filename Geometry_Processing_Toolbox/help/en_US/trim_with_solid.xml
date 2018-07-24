@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+* Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+* Copyright (C) 2018 - 2018 - Scilab Enterprises
+* Copyright (C) 2018-2018 - Siddhartha Gairola GSoC 2018
+*
+* This file is hereby licensed under the terms of the GNU GPL v2.0,
+* pursuant to article 5.3.4 of the CeCILL v.2.1.
+* This file was originally licensed under the terms of the CeCILL v2.1,
+* and continues to be available under such terms.
+* For more information, see the COPYING file which you should have received
+* along with this program.
+*
+-->
+<refentry xml:id="trim_with_solid" xml:lang="en"
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:ns5="http://www.w3.org/1999/xhtml"
+    xmlns:mml="http://www.w3.org/1998/Math/MathML"
+    xmlns:db="http://docbook.org/ns/docbook">
+    <info>
+        <pubdate>$LastChangedDate$</pubdate>
+    </info>
+
+    <refnamediv>
+        <refname>Trim With Solid</refname>
+
+        <refpurpose>
+            Given an arbitrary mesh (VA,FA) and the boundary mesh (VB,FB) of a solid. See Description for more details.
+        </refpurpose>
+    </refnamediv>
+
+    <refsynopsisdiv>
+        <title>Syntax</title>
+        <synopsis>
+            [V, F, D, J] = trim_with_solid(VA, FA, VB, FB)
+        </synopsis>
+    </refsynopsisdiv>
+
+    <refsection>
+        <title>Arguments</title>
+        <variablelist>
+            <varlistentry>
+                <term>VA</term>
+                <listitem>
+                    <para>#VA by 3 list of mesh vertex positions of A</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>FA</term>
+                <listitem>
+                    <para>#FA by 3 list of mesh triangle indices into VA</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>VB</term>
+                <listitem>
+                    <para>#VB by 3 list of mesh vertex positions of B</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>FB</term>
+                <listitem>
+                    <para>#FB by 3 list of mesh triangle indices into VB</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </refsection>
+
+    <refsection>
+        <title>Output</title>
+        <variablelist>
+            <varlistentry>
+                <term>V</term>
+                <listitem>
+                    <para>#V by 3 list of mesh vertex positions of output</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>F</term>
+                <listitem>
+                    <para>#F by 3 list of mesh triangle indices into V</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>D</term>
+                <listitem>
+                    <para>#F list of bools whether face is inside B</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>J</term>
+                <listitem>
+                    <para>#F list of indices into FA revealing birth parent</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </refsection>
+
+    <refsection>
+        <title>Description></title>
+        <para>Given an arbitrary mesh (VA,FA) and the boundary mesh (VB,FB) of a solid (as defined in [Zhou et al. 2016]), Resolve intersections between A and B subdividing faces of A so that intersections with B exists only along edges and vertices (and coplanar faces). Then determine whether each of these faces is inside or outside of B. This can be used to extract the part of A inside or outside of B.</para>
+    </refsection>
+
+    <refsection role="see also">
+        <title>See also</title>
+
+        <simplelist type="inline">
+            <member>
+                <ulink url="https://github.com/alecjacobson/gptoolbox">Geometry Processing Toolbox</ulink>
+            </member>
+            <member>
+                <link linkend="geoemtry_processing_toolbox">Geometry_Processing_Toolbox</link>
+            </member>
+        </simplelist>
+    </refsection>
+    
+</refentry>
