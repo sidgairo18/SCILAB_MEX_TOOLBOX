@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+* Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+* Copyright (C) 2018 - 2018 - Scilab Enterprises
+* Copyright (C) 2018-2018 - Siddhartha Gairola GSoC 2018
+*
+* This file is hereby licensed under the terms of the GNU GPL v2.0,
+* pursuant to article 5.3.4 of the CeCILL v.2.1.
+* This file was originally licensed under the terms of the CeCILL v2.1,
+* and continues to be available under such terms.
+* For more information, see the COPYING file which you should have received
+* along with this program.
+*
+-->
+<refentry xml:id="snap_rounding" xml:lang="en"
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:ns5="http://www.w3.org/1999/xhtml"
+    xmlns:mml="http://www.w3.org/1998/Math/MathML"
+    xmlns:db="http://docbook.org/ns/docbook">
+    <info>
+        <pubdate>$LastChangedDate$</pubdate>
+    </info>
+
+    <refnamediv>
+        <refname>Snap Rounding</refname>
+
+        <refpurpose>
+            Snap a list of possible intersecting segments with endpoints in any precision to _the_ integer grid.
+        </refpurpose>
+    </refnamediv>
+
+    <refsynopsisdiv>
+        <title>Syntax</title>
+        <synopsis>
+            [VI, EI, J] = snap_rounding(V, E)
+        </synopsis>
+    </refsynopsisdiv>
+
+    <refsection>
+        <title>Arguments</title>
+        <variablelist>
+            <varlistentry>
+                <term>V</term>
+                <listitem>
+                    <para>#V by 2 list of vertex positions</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>E</term>
+                <listitem>
+                    <para>#E by 2 list of segment indices into V</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </refsection>
+
+    <refsection>
+        <title>Output</title>
+        <variablelist>
+            <varlistentry>
+                <term>VI</term>
+                <listitem>
+                    <para>#VI by 2 list of output integer vertex positions, rounded copies of V are always the first #V vertices</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>EI</term>
+                <listitem>
+                    <para>#EI by 2 list of segment indices into V, #EI &gt; #E</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>J</term>
+                <listitem>
+                    <para>#EI list of indices into E revealing "parent segments"</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </refsection>
+
+    <refsection>
+        <title>Description></title>
+        <para>Snap a list of possible intersecting segments with endpoints in any precision to _the_ integer grid.</para>
+    </refsection>
+
+    <refsection role="see also">
+        <title>See also</title>
+
+        <simplelist type="inline">
+            <member>
+                <ulink url="https://github.com/alecjacobson/gptoolbox">Geometry Processing Toolbox</ulink>
+            </member>
+            <member>
+                <link linkend="geoemtry_processing_toolbox">Geometry_Processing_Toolbox</link>
+            </member>
+        </simplelist>
+    </refsection>
+    
+</refentry>
