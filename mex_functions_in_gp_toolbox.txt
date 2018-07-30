@@ -1,7 +1,7 @@
 This is a list of the mex function files in the GP toolbox which will be ported.
 
 1. abmbient_occlusion.cpp - (locally present)
-2. bone_visible.cpp - (locally present)
+2. bone_visible.cpp - DONE (remember to add present path for ray_mesh_intersect.h)
 3. bone_visible_embree.cpp - (locally present)
 4. collapse_small_triangles.cpp - DONE - (incomplete linking)
 5. decimate_cgal.cpp - (locally present)
