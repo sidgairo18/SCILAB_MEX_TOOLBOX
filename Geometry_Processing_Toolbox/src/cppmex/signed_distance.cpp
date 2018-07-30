@@ -5,6 +5,7 @@
 #include <igl/matlab/mexErrMsgTxt.h>
 #undef assert
 #define assert( isOK ) ( (isOK) ? (void)0 : (void) mexErrMsgTxt(C_STR(__FILE__<<":"<<__LINE__<<": failed assertion `"<<#isOK<<"'"<<std::endl) ) )
+#endif
 #include <igl/matlab/MexStream.h>
 
 #include <igl/per_vertex_normals.h>
@@ -239,6 +240,5 @@ void mexFunction(
   std::cout.rdbuf(outbuf);
 }
 
-#endif
 
 
