@@ -18,7 +18,7 @@ This is a list of the mex function files in the GP toolbox which will be ported.
 16. readMSH.cpp - DONE
 17. read_mesh_from_xml.cpp - DONE - (incomplete linking)
 18. read_traingle_mesh.cpp - DONE
-19. reorient_facets.cpp - (locally present) - Depends on embree
+19. reorient_facets.cpp - DONE - (linking has to be verified)
 20. segment_graph.cpp - DONE
 21. selfintersect.cpp - (locally present) - That cgal error
 22. signed_distance.cpp - DONE
