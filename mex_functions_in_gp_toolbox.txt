@@ -1,6 +1,6 @@
 This is a list of the mex function files in the GP toolbox which will be ported.
 
-1. abmbient_occlusion.cpp - (locally present)
+1. abmbient_occlusion.cpp - DONE - (linking has to be verified with embree)
 2. bone_visible.cpp - DONE (remember to add present path for ray_mesh_intersect.h)
 3. bone_visible_embree.cpp - (locally present)
 4. collapse_small_triangles.cpp - DONE - (incomplete linking)
@@ -18,7 +18,7 @@ This is a list of the mex function files in the GP toolbox which will be ported.
 16. readMSH.cpp - DONE
 17. read_mesh_from_xml.cpp - DONE - (incomplete linking)
 18. read_traingle_mesh.cpp - DONE
-19. reorient_facets.cpp - DONE - (linking has to be verified)
+19. reorient_facets.cpp - DONE - (linking has to be verified with embree)
 20. segment_graph.cpp - DONE
 21. selfintersect.cpp - (locally present) - That cgal error
 22. signed_distance.cpp - DONE
