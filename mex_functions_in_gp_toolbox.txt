@@ -14,7 +14,7 @@ This is a list of the mex function files in the GP toolbox which will be ported.
 12. mesh_boolean.cpp - DONE (partially) - (incomplete linking)
 13. outer_hull.cpp - DONE (partially) - (incomplete linking)
 14. point_mesh_squared_distance.cpp - (locally present)
-15. ray_mesh_intersect.cpp - (locally present)
+15. ray_mesh_intersect.cpp - DONE - (incomplete linking) - Fix Embree (install in libigl/external/embree)
 16. readMSH.cpp - DONE
 17. read_mesh_from_xml.cpp - DONE - (incomplete linking)
 18. read_traingle_mesh.cpp - DONE
