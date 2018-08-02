@@ -1,4 +1,3 @@
-
 #include <igl/read_triangle_mesh.h>
 #include <igl/pathinfo.h>
 #include <igl/writeOFF.h>
@@ -7,34 +6,30 @@
 #include <igl/writeDMAT.h>
 #include <igl/unique_simplices.h>
 #include <igl/C_STR.h>
-#ifdef MEX
-#  define IGL_REDRUM_NOOP
-#endif
+
+#define IGL_REDRUM_NOOP
+
 #include <igl/REDRUM.h>
-#ifdef MEX
-#  include <igl/matlab/MexStream.h>
-#  include <igl/matlab/mexErrMsgTxt.h>
-#  include <igl/matlab/validate_arg.h>
-#  include <igl/matlab/parse_rhs.h>
-#  include <igl/matlab/prepare_lhs.h>
-#endif
+#include <igl/matlab/MexStream.h>
+#include <igl/matlab/mexErrMsgTxt.h>
+#include <igl/matlab/validate_arg.h>
+#include <igl/matlab/parse_rhs.h>
+#include <igl/matlab/prepare_lhs.h>
+
 #include <igl/copyleft/cgal/intersect_other.h>
 #include <igl/copyleft/cgal/RemeshSelfIntersectionsParam.h>
 
-#ifdef MEX
-#  include "mex.h"
-#endif
+#include "mex.h"
 
 #include <iostream>
 #include <string>
 
-#ifdef MEX
+#ifndef MEX
 #  include <mex.h>
 #  undef assert
 #  define assert( isOK ) ( (isOK) ? (void)0 : (void) mexErrMsgTxt(C_STR(__FILE__<<":"<<__LINE__<<": failed assertion `"<<#isOK<<"'"<<std::endl) ) )
 #endif
 
-#ifdef MEX
 void mexFunction(int nlhs, mxArray *plhs[], 
     int nrhs, const mxArray *prhs[])
 {
@@ -42,11 +37,7 @@ void mexFunction(int nlhs, mxArray *plhs[],
   //mexPrintf("%s %s\n",__TIME__,__DATE__);
   igl::matlab::MexStream mout;
   std::streambuf *outbuf = std::cout.rdbuf(&mout);
-
-#else
-int main(int argc, char * argv[])
-{
-#endif
+  
   using namespace std;
   using namespace Eigen;
   using namespace igl;
@@ -59,7 +50,7 @@ int main(int argc, char * argv[])
 
   string prefix;
   bool use_obj_format = false;
-#ifdef MEX
+#ifndef MEX
   const int NUM_REQ = 4;
   if(nrhs < NUM_REQ)
   {
@@ -162,12 +153,7 @@ int main(int argc, char * argv[])
     doublearea(V,F,A);
     if(A.minCoeff()<=0)
     {
-#ifdef MEX
       mexErrMsgTxt("Geometrically degenerate face found.");
-#else
-      cerr<<"Geometrically degenerate face found."<<endl;
-      return false;
-#endif
     }
     VectorXi F12,F23,F31;
     F12 = F.col(0)-F.col(1);
@@ -178,22 +164,14 @@ int main(int argc, char * argv[])
       F23.minCoeff() == 0 || 
       F31.minCoeff() == 0)
     {
-#ifdef MEX
       mexErrMsgTxt("Combinatorially degenerate face found.");
-#else
-      cerr<<"Geometrically degenerate face found."<<endl;
-      return false;
-#endif
     }
     return true;
   };
 
   if(!validate(VA,FA) || !validate(VB,FB))
   {
-#ifndef MEX
-    // Otherwise should have called mexErr
-    return 1;
-#endif
+      //call mex_error here.
   }
 
   // Now mesh self intersections
@@ -203,13 +181,7 @@ int main(int argc, char * argv[])
   {
     igl::copyleft::cgal::intersect_other(
       VA,FA,VB,FB,params,IF,VVAB,FFAB,JAB,IMAB);
-#ifndef MEX
-    cout<<"writing pair list to "<<(prefix+"-IF.dmat")<<endl;
-    writeDMAT((prefix+"-IF.dmat").c_str(),IF);
-#endif
   }
-
-#ifdef MEX
   switch(nlhs)
   {
     default:
@@ -249,7 +221,4 @@ int main(int argc, char * argv[])
   // Restore the std stream buffer Important!
   std::cout.rdbuf(outbuf);
 
-#else
-  return 0;
-#endif
 }

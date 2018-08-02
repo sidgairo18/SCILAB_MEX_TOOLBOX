@@ -10,7 +10,7 @@ This is a list of the mex function files in the GP toolbox which will be ported.
 8. fit_rotations_mex.cpp - DONE (partially) - (incomplete linking)
 9. impaste.cpp - DONE (partially) - (incomplete linking)
 10. in_element_aabb.cpp - DONE (partially) - (incomplete linking)
-11. intersect_other.cpp - (locally present)
+11. intersect_other.cpp - DONE - (incomplete linking)
 12. mesh_boolean.cpp - DONE (partially) - (incomplete linking)
 13. outer_hull.cpp - DONE (partially) - (incomplete linking)
 14. point_mesh_squared_distance.cpp - (locally present)
