@@ -20,7 +20,7 @@ This is a list of the mex function files in the GP toolbox which will be ported.
 18. read_traingle_mesh.cpp - DONE
 19. reorient_facets.cpp - DONE - (linking has to be verified with embree)
 20. segment_graph.cpp - DONE
-21. selfintersect.cpp - (locally present) - That cgal error
+21. selfintersect.cpp - DONE - (verify linking)
 22. signed_distance.cpp - DONE
 23. signed_distance_isosurface.cpp - DONE (partially) - (incomplete linking) Requires - CGAL
 24. simplify_polyhedron.cpp - DONE

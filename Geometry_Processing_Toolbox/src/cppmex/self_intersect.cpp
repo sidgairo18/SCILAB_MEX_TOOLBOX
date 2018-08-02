@@ -1,4 +1,4 @@
-#ifdef MEX
+#ifndef MEX
 #  include <mex.h>
 #  include <igl/C_STR.h>
 #  undef assert
@@ -12,11 +12,11 @@
 #endif
 #include <igl/doublearea.h>
 #include <igl/unique_simplices.h>
-#ifdef MEX
+#ifndef MEX
 #  define IGL_REDRUM_NOOP
 #endif
 #include <igl/REDRUM.h>
-#ifdef MEX
+#ifndef MEX
 #  include <igl/matlab/MexStream.h>
 #  include <igl/matlab/mexErrMsgTxt.h>
 #  include <igl/matlab/validate_arg.h>
@@ -24,14 +24,14 @@
 #endif
 #include <igl/copyleft/cgal/remesh_self_intersections.h>
 
-#ifdef MEX
+#ifndef MEX
 #  include "mex.h"
 #endif
 
 #include <iostream>
 #include <string>
 
-#ifdef MEX
+#ifndef MEX
 void mexFunction(int nlhs, mxArray *plhs[], 
     int nrhs, const mxArray *prhs[])
 {
@@ -56,7 +56,7 @@ int main(int argc, char * argv[])
 
   string prefix;
   bool use_obj_format = false;
-#ifdef MEX
+#ifndef MEX
   if(nrhs < 2)
   {
     mexErrMsgTxt("nrhs < 2");
@@ -152,7 +152,7 @@ int main(int argc, char * argv[])
     doublearea(V,F,A);
     if(A.minCoeff()<=0)
     {
-#ifdef MEX
+#ifndef MEX
       mexErrMsgTxt("Geometrically degenerate face found.");
 #else
       cerr<<"Geometrically degenerate face found."<<endl;
@@ -164,7 +164,7 @@ int main(int argc, char * argv[])
        (F.array().col(1) == F.array().col(2)).any() ||
        (F.array().col(2) == F.array().col(0)).any())
     {
-#ifdef MEX
+#ifndef MEX
       mexErrMsgTxt("Combinatorially degenerate face found.");
 #else
       cerr<<"Geometrically degenerate face found."<<endl;
@@ -181,7 +181,7 @@ int main(int argc, char * argv[])
       //  <<" of self-intersecting triangles.")<<endl;
       V=tempV;
       F=tempF;
-#ifndef MEX
+#ifdef MEX
       cout<<"writing pair list to "<<(prefix+"-IF.dmat")<<endl;
       writeDMAT((prefix+"-IF.dmat").c_str(),IF);
       cout<<"writing map to F list to "<<(prefix+"-J.dmat")<<endl;
@@ -224,7 +224,7 @@ int main(int argc, char * argv[])
 #endif
   }
 
-#ifdef MEX
+#ifndef MEX
   // Prepare left-hand side
   switch(nlhs)
   {
