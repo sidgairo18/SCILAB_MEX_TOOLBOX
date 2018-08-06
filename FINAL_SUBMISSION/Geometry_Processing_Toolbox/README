@@ -1,0 +1,38 @@
+                Geometry Processing Toolbox
+       
+         ================================================
+
+About:
+
+This is the Geometry Processing Toolbox. This only supports the /mex files and functions in this toolbox.
+It serves as a reference for the "mexlib" module in Scilab.
+
+Refer below link for more details -
+- Link : https://github.com/alecjacobson/gptoolbox/tree/master/mex
+
+Dependencies:
+
+1. Scilab >= 6.0.1 (http://www.scilab.org/) (May work on lower versions too with mex support)
+2. c++11
+3. Eigen
+4. libigl
+5. CGAL
+    5.1 BOOST
+    5.2 GMP
+    5.3 MPFR
+6. Embree
+7. El Topo
+
+Note: Libigl is by default a header only library. You do not need to compile it to use it (though you do need to compile and link to any dependencies, e.g. CGAL).
+
+Building and Loading: 
+
+1. Set the path of the libraries relative to the local machine running this toolbox in file ./src/cppmex/builder.sce
+2. Execute runner.sce to compile and load the functions in the Toolbox.
+
+(Make sure to set absolute paths only)
+
+Bugs:
+
+Bugs or issues may be reported at-
+https://github.com/sidgairo18/SCILAB_MEX_TOOLBOX/issues
