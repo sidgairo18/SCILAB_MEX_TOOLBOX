@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+* Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+* Copyright (C) 2018 - 2018 - Scilab Enterprises
+* Copyright (C) 2018-2018 - Siddhartha Gairola GSoC 2018
+*
+* This file is hereby licensed under the terms of the GNU GPL v2.0,
+* pursuant to article 5.3.4 of the CeCILL v.2.1.
+* This file was originally licensed under the terms of the CeCILL v2.1,
+* and continues to be available under such terms.
+* For more information, see the COPYING file which you should have received
+* along with this program.
+*
+-->
+<refentry xml:id="geometry_processing_toolbox" xml:lang="en"
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:ns5="http://www.w3.org/1999/xhtml"
+    xmlns:mml="http://www.w3.org/1998/Math/MathML"
+    xmlns:db="http://docbook.org/ns/docbook">
+    <info>
+        <pubdate>$LastChangedDate$</pubdate>
+    </info>
+
+    <refnamediv>
+        <refname>Geometry Processing Toolbox</refname>
+
+        <refpurpose>
+            This toolbox contains all the mex functions which are ported from the Geometry Processing Toolbox of Alec Jacobson. This module is based on the <ulink url="https://github.com/alecjacobson/gptoolbox">Geometry Processing</ulink>.
+        </refpurpose>
+    </refnamediv>
+
+    <refsection>
+        <title>How to</title>
+
+        <para>Most of the mex files will depend on libigl. Some depend on cgal and embree. The mex functions must be compiled before they can be called from Scilab. Typically the C++ code for function myfunc will be in a file called myfunc.cpp and accompanied by a blank file myfunc.sci, which simply contains comments explaining call usage of the function. Here is a small example:</para>
+
+        <programlisting><![CDATA[
+            SIGNED_DISTANCE Compute signed distance from points P to a mesh (V,F)
+            [S,I,C,N] = signed_distance(P,V,F,'ParameterName',parameter_value,...)
+            Inputs:
+                P  #P by 3 list of query point positions
+                V  #V by 3 list of vertex positions
+                F  #F by 3 list of triangle indices
+            Optional:
+                'SignedDistanceType' followed by
+                'winding_number' use winding number (continuous sign value for non-watertight)
+                {'pseudonormal'}  use pseudo-normal, binary scale (but not robust for non-watertight meshes.
+            Outputs:
+                S  #P list of smallest signed distances
+                I  #P list of facet indices corresponding to smallest distances
+                C  #P by 3 list of closest points
+                N  #P by 3 list of closest normals (only set if
+            ]]></programlisting>
+
+        <para>
+            The above is an example of usage of signed_distance() mex function after loading the mex file signed_distance.cpp.
+            To compile a mex function myfunc.cpp file, you should use Scilab <link linkend="ilib_mex_build">ilib_mex_build</link> function.
+        </para>
+        <para>
+             To compile the toolbox we use the <link linkend="tbx_build_gateway">tbx_build_function</link> function. Basically this function will be executed when the builder.sce file for the toolbox is executed from SCILAB.
+        </para>
+
+        <programlisting ><![CDATA[
+            --> ilib_mex_build('libmexexample',['myfunc','myfunc', 'cmex'], 'myfunc.c',[],'Makelib','','','');
+            ]]></programlisting>
+
+        <para>This creates a loader file. To load it into Scilab, you should run:</para>
+
+        <programlisting><![CDATA[
+            --> exec('loader.sce');
+            ]]></programlisting>
+    </refsection>
+
+    <refsection>
+
+        <title>Dependencies</title>
+
+        <para> Some of these mex function depend on the following: </para>
+        <para> cmake, c++11, Eigen, libigl, CGAL with boost, Embree, El Topo, Cork, Mac OS X Foundation and AppKit frameworks. For more details visit  <ulink url="https://www.mathworks.com/help/matlab/call-mex-files-1.html">GP Toolbox</ulink> </para>
+
+    </refsection>
+
+    <refsection role="see also">
+        <title>See also</title>
+
+        <simplelist type="inline">
+            <member>
+                <ulink url="https://github.com/alecjacobson/gptoolbox">Geometry Processing Toolbox</ulink>
+            </member>
+            <member>
+                <link linkend="ilib_mex_build">ilib_mex_build</link>
+            </member>
+            <member>
+                <link linkend="tbx_build_gateway">tbx_build_gateway</link>
+            </member>
+            <member>
+              <ulink url="https://www.mathworks.com/help/matlab/call-mex-files-1.html">MEX-files guide from Matlab</ulink>
+            </member>
+            <member>
+              <ulink url="https://www.gnu.org/software/octave/doc/interpreter/Mex_002dFiles.html">MEX-files in the GNU Octave manual</ulink>
+            </member>
+            <member>
+                <ulink url="https://wiki.scilab.org/howto/Create%20a%20toolbox">Creating a Toolbox</ulink>
+            </member>
+        </simplelist>
+    </refsection>
+    
+</refentry>

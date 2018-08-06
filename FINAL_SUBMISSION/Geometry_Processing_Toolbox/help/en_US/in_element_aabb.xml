@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+* Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+* Copyright (C) 2018 - 2018 - Scilab Enterprises
+* Copyright (C) 2018-2018 - Siddhartha Gairola GSoC 2018
+*
+* This file is hereby licensed under the terms of the GNU GPL v2.0,
+* pursuant to article 5.3.4 of the CeCILL v.2.1.
+* This file was originally licensed under the terms of the CeCILL v2.1,
+* and continues to be available under such terms.
+* For more information, see the COPYING file which you should have received
+* along with this program.
+*
+-->
+<refentry xml:id="in_element_aabb" xml:lang="en"
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:ns5="http://www.w3.org/1999/xhtml"
+    xmlns:mml="http://www.w3.org/1998/Math/MathML"
+    xmlns:db="http://docbook.org/ns/docbook">
+    <info>
+        <pubdate>$LastChangedDate$</pubdate>
+    </info>
+
+    <refnamediv>
+        <refname>In Element AABB</refname>
+
+        <refpurpose>
+            Determine if a set of points appears inside the elements of a mesh.
+        </refpurpose>
+    </refnamediv>
+
+    <refsynopsisdiv>
+        <title>Syntax</title>
+        <synopsis>
+            I = in_element_aabb(V,Ele,Q);
+            [I,bb_mins,bb_maxs,elements] = in_element_aabb(V,Ele,Q,bb_mins,bb_maxs,elements);
+        </synopsis>
+    </refsynopsisdiv>
+
+    <refsection>
+        <title>Arguments</title>
+        <variablelist>
+            <varlistentry>
+                <term>V</term>
+                <listitem>
+                    <para>#V by dim list of mesh vertex positions.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Ele</term>
+                <listitem>
+                    <para>#Ele by dim+1 list of mesh indices into #V.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Q</term>
+                <listitem>
+                    <para>#Q by dim list of query point positions</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </refsection>
+
+    <refsection>
+        <title>Optional</title>
+        <variablelist>
+            <varlistentry>
+                <term>bb_mins</term>
+                <listitem>
+                    <para>max_tree by dim list of bounding box min corner positions</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>bb_maxs</term>
+                <listitem>
+                    <para>max_tree by dim list of bounding box max corner positions</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>elements</term>
+                <listitem>
+                    <para>max_tree list of element or (not leaf id) indices into Ele</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </refsection>
+
+    <refsection>
+        <title>Output</title>
+        <variablelist>
+            <varlistentry>
+                <term>I</term>
+                <listitem>
+                    <para>#Q list of indices into Ele of first containing element (0 means no containing element)</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>bb_mins</term>
+                <listitem>
+                    <para>See optional input</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>bb_maxs</term>
+                <listitem>
+                    <para>See optional input</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>elements</term>
+                <listitem>
+                    <para>See optional input</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </refsection>
+    
+    <refsection>
+        <title>Description></title>
+        <para>IN_ELEMENT_AABB Use an axis-aligned bounding box tree to determine if a set of points appears inside the elements of a mesh.</para>
+    </refsection>
+
+    <refsection>
+        <title>Examples</title>      
+        <para>Example showing the use of In Element AABB.</para>
+        <programlisting><![CDATA[
+        //Dummy data
+        aabbn = [];
+        aabbx = [];
+        aabbe = [];
+        //Call once to build AABB and query
+        [I,aabbn,aabbx,aabbe] = in_element_aabb(V,Ele,Q,aabbn,aabbx,aabbe);
+        //Call again with same output to build AABB from serialized output
+        [I,aabbn,aabbx,aabbe] = in_element_aabb(V,Ele,Q,aabbn,aabbx,aabbe);
+        //recover barycentric coordinates (assuming tet mesh)
+        [II,~,IV] = find(I);
+        B = barycentric_coordinates(Q(II,:),V(Ele(IV,1),:),V(Ele(IV,2),:),V(Ele(IV,3),:),V(Ele(IV,4),:));
+        //reproduce positions of found points using barycentric coordinates
+        //BQ = sum(bsxfun(@times, permute(B,[1 3 2]), cat(3,V(Ele(IV,1),:),V(Ele(IV,2),:),V(Ele(IV,3),:),V(Ele(IV,4),:))),3); Use equivalent of bsxfun() in scilab.
+        //Map back so that size(B,1) == size(Q,1)
+        B = sparse(repmat(II,1,size(B,2)),repmat(1:size(B,2),size(B,1),1),B, numel(I),size(B,2));
+        scatter3(Q(:,1),Q(:,2),Q(:,3));
+        set(gca(),"auto_clear","off");
+        //scatter3(BQ(:,1),BQ(:,2),BQ(:,3),'r','SizeData',10);
+        set(gca(),"auto_clear","on");
+            ]]></programlisting>
+    </refsection>
+
+    <refsection role="see also">
+        <title>See also</title>
+
+        <simplelist type="inline">
+            <member>
+                <ulink url="https://github.com/alecjacobson/gptoolbox">Geometry Processing Toolbox</ulink>
+            </member>
+            <member>
+                <link linkend="geoemtry_processing_toolbox">Geometry_Processing_Toolbox</link>
+            </member>
+        </simplelist>
+    </refsection>
+    
+</refentry>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+* Scilab ( http://www.scilab.org/ ) - This file is part of Scilab
+* Copyright (C) 2018 - 2018 - Scilab Enterprises
+* Copyright (C) 2018-2018 - Siddhartha Gairola GSoC 2018
+*
+* This file is hereby licensed under the terms of the GNU GPL v2.0,
+* pursuant to article 5.3.4 of the CeCILL v.2.1.
+* This file was originally licensed under the terms of the CeCILL v2.1,
+* and continues to be available under such terms.
+* For more information, see the COPYING file which you should have received
+* along with this program.
+*
+-->
+<refentry xml:id="winding_number" xml:lang="en"
+    xmlns="http://docbook.org/ns/docbook"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:ns5="http://www.w3.org/1999/xhtml"
+    xmlns:mml="http://www.w3.org/1998/Math/MathML"
+    xmlns:db="http://docbook.org/ns/docbook">
+    <info>
+        <pubdate>$LastChangedDate$</pubdate>
+    </info>
+
+    <refnamediv>
+        <refname>Winding Number</refname>
+
+        <refpurpose>
+            Compute the sum of solid angles of a triangle (tetrahedron) described by points (vectors) V
+        </refpurpose>
+    </refnamediv>
+
+    <refsynopsisdiv>
+        <title>Syntax</title>
+        <synopsis>
+            [W] = winding_number(V,F,O)
+            [W] = winding_number(V,F,O,'ParameterName',ParameterValue, ...)
+        </synopsis>
+    </refsynopsisdiv>
+
+    <refsection>
+        <title>Arguments</title>
+        <variablelist>
+            <varlistentry>
+                <term>V</term>
+                <listitem>
+                    <para>#V by 3 list of vertex positions</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>F</term>
+                <listitem>
+                    <para>#F by 3 list of triangle indices</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>O</term>
+                <listitem>
+                    <para>#O by 3 list of origin positions</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </refsection>
+
+    <refsection>
+        <title>Optional</title>
+        <variablelist>
+            <varlistentry>
+                <term>'Hierarchical'</term>
+                <listitem>
+                    <para>'Hierarchical'  followed by true or false. Use hierarchical evaluation. for mex: {true}, for matlab this is not supported</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>'RayCast'</term>
+                <listitem>
+                    <para>'RayCast' followed by true or false. Use ray cast version of approximate evaluation: {false}</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>'TwoDRays'</term>
+                <listitem>
+                    <para>'TwoDRays' followed by true or false. Use 2d rays only.</para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>'NumRays'</term>
+                <listitem>
+                    <para>'NumRays' followed by the number of rays to cast for each origin</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </refsection>
+
+    <refsection>
+        <title>Output</title>
+        <variablelist>
+            <varlistentry>
+                <term>W</term>
+                <listitem>
+                    <para>no by 1 list of winding numbers</para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </refsection>
+
+    <refsection>
+        <title>Description></title>
+        <para>Compute the sum of solid angles of a triangle (tetrahedron) described by points (vectors) V</para>
+    </refsection>
+
+    <refsection role="see also">
+        <title>See also</title>
+
+        <simplelist type="inline">
+            <member>
+                <ulink url="https://github.com/alecjacobson/gptoolbox">Geometry Processing Toolbox</ulink>
+            </member>
+            <member>
+                <link linkend="geoemtry_processing_toolbox">Geometry_Processing_Toolbox</link>
+            </member>
+        </simplelist>
+    </refsection>
+    
+</refentry>
