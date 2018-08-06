@@ -11,6 +11,7 @@
 // For more information, see the COPYING file which you should have received
 // along with this program.
 
-exec(SCI+"/modules/mexlib/mex_toolboxes/Geometry_Processing_Toolbox/src/cpp/builder.sce");
-exec(SCI+"/modules/mexlib/mex_toolboxes/Geometry_Processing_Toolbox/src/cpp/loader.sce");
+CURR_PATH = get_absolute_file_path("runner.sce");
 
+exec(CURR_PATH+"builder.sce")
+exec(CURR_PATH+"loader.sce")
