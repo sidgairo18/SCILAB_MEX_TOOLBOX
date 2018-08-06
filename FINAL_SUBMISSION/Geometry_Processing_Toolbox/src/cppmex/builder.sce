@@ -76,14 +76,12 @@ USER_PATH = "/usr/"
 USER_INC = "-I"+USER_PATH+"include/"
 
 // Place scilab absolute path here.
-// SCILAB_PATH = "path/to/scilab/"
-SCILAB_PATH = "/home/sid/Gsoc17/scilab_master/scilab";
+SCILAB_PATH = SCI+"/"
 SCILAB_INC = "-I"+SCILAB_PATH+"usr/include/";
 SCILAB_LIB = "-L"+SCILAB_PATH+"usr/lib/";
 
 // Path for all external dependencies.
 LIBIGL = CURR_PATH+"../../includes/libigl/";
-//LIBIGL = "/home/sid/Gsoc17/demo_current_ongoing/mex_toolboxes/Geometry_Processing_Toolbox/includes/libigl/";
 LIBIGL_LIB = "-L"+LIBIGL;
 LIBIGL_INC = "-I"+LIBIGL+"include";
 
@@ -91,8 +89,7 @@ LIBIGL_INC = "-I"+LIBIGL+"include";
 BOOST = USER_PATH+"include/boost/";
 BOOST_INC = "-I"+BOOST;
 
-// CGAL = CURR_PATH+"../../includes/CGAL/"
-CGAL = "/home/sid/libs/CGAL-4.11.2/";
+CGAL = CURR_PATH+"../../includes/CGAL/"
 CGAL_LIB = "-L"+CGAL+" -L"+CGAL+"lib"+" -lCGAL";
 CGAL_INC = "-I"+CGAL+"include";
 
@@ -101,19 +98,16 @@ EMBREE = LIBIGL+"external/embree/";
 EMBREE_LIB = "-L"+EMBREE+"build/";
 EMBREE_INC = "-I"+EMBREE+" -I"+EMBREE+"include";
 
-//ELTOPO = CURR_PATH+"../../includes/eltopo/eltopo3d/";
-ELTOPO = "/home/sid/Gsoc17/eltopo/eltopo3d"
+ELTOPO = CURR_PATH+"../../includes/eltopo/eltopo3d/";
 ELTOPO_LIB = "-L"+ELTOPO+"libeltopo_release.a";
 ELTOPO_INC = "-I"+ELTOPO;
 
 // EIGEN = SCILAB_PATH+"usr/include/Eigen/"
-// EIGEN = "/home/sid/Gsoc17/scilab_master/scilab/usr/include/Eigen/";
-EIGEN = "/usr/include/eigen3/"
+EIGEN = "/path/to/eigen"
 EIGEN_LIB = "-L"+EIGEN;
 EIGEN_INC = "-I"+EIGEN;
 
-// GMP = "path/to/GMP/"
-GMP = "/home/sid/libs/gmp-6.1.2/";
+GMP = "path/to/GMP/"
 GMP_INC = "-lgmp -lgmpxx"+" -I"+GMP;
 
 // cflags, fflags, ldflags, cc
