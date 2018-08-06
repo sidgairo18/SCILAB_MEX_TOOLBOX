@@ -30,3 +30,6 @@ This is a list of the mex function files in the GP toolbox which will be ported.
 28. trim_with_solid.cpp - DONE - (linking has to be verified)
 29. winding_number.cpp - DONE - (incomplete linking) - Depends on embree
 30. wire_mesh.cpp - DONE
+
+Update the dependencies now.
+Embree requires ImageMagick - Magick++
