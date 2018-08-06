@@ -1,0 +1,8 @@
+Build the toolbox
+------------------
+
+Run the following code in Scilab command window:
+    --> cd /path/to/Geometry_Processing_Toolbox/src/cpp
+    --> exec runner.sce
+
+If no error appears, then the functions in the Geometry Processing Toolbox can be used.
