@@ -45,5 +45,4 @@ https://github.com/sidgairo18/SCILAB_MEX_TOOLBOX/issues
 
 
 NOTE - This work was done as a part of GSoC 2018 to port an existing mex toolbox for SCILAB. These are only mex function files which can be loaded in Scilab and run.
-Please refer to https://github.com/alecjacobson/gptoolbox/tree/master/mex which is the GP Toolbox from which the functions were ported for Scilab. The builder.sce and
-runner.sce file have been implemented accordingly.
+Please refer to https://github.com/alecjacobson/gptoolbox/tree/master/mex which is the GP Toolbox from which the functions were ported for Scilab. The builder.sce and runner.sce file have been implemented accordingly.
