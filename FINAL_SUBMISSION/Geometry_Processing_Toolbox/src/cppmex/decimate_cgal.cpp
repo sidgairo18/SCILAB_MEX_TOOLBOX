@@ -41,6 +41,7 @@ typedef Surface_mesh::Halfedge_handle Halfedge_handle ;
 typedef Surface_mesh::Vertex_handle   Vertex_handle ;
 namespace SMS = CGAL::Surface_mesh_simplification ;
 typedef SMS::Edge_profile<Surface_mesh> Profile ;
+using namespace CGAL;
 // The following is a Visitor that keeps track of the simplification process.
 // In this example the progress is printed real-time and a few statistics are
 // recorded (and printed in the end).
@@ -62,7 +63,7 @@ struct Stats
   std::size_t non_collapsable ;
   std::size_t cost_uncomputable  ;
   std::size_t placement_uncomputable ; 
-} ;
+};
 struct My_visitor : SMS::Edge_collapse_visitor_base<Surface_mesh>
 {
   My_visitor( Stats* s) : stats(s){} 

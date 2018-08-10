@@ -10,6 +10,11 @@
 #include <limits>
 #include <mex.h>
 
+using namespace std;
+using namespace Eigen;
+using namespace igl;
+using namespace igl::matlab;
+using namespace igl::embree;
 void mexFunction(int nlhs, mxArray *plhs[],
     int nrhs, const mxArray *prhs[])
 {
@@ -17,11 +22,6 @@ void mexFunction(int nlhs, mxArray *plhs[],
   //mexPrintf("%s %s\n",__TIME__,__DATE__);
   igl::matlab::MexStream mout;
   std::streambuf *outbuf = std::cout.rdbuf(&mout);
-  using namespace std;
-  using namespace Eigen;
-  using namespace igl;
-  using namespace igl::matlab;
-  using namespace igl::embree;
   // Embree uses singles
   MatrixXf V,source,dir;
   MatrixXi F;

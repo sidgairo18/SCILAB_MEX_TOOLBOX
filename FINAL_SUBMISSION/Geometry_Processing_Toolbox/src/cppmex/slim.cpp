@@ -11,7 +11,7 @@
 #include <igl/map_vertices_to_circle.h>
 #include <igl/boundary_loop.h>
 #include <igl/components.h>
-#ifdef MEX
+#ifndef MEX
 #include <igl/matlab/MexStream.h>
 #include <igl/matlab/mexErrMsgTxt.h>
 #include <igl/matlab/prepare_lhs.h>
@@ -21,7 +21,7 @@
 #include <igl/matlab/MatlabWorkspace.h>
 #endif
 
-#ifdef MEX
+#ifndef MEX
 void mexFunction(
   int nlhs, mxArray *plhs[], 
   int nrhs, const mxArray *prhs[])
@@ -52,7 +52,7 @@ int main(int argc, char * argv[])
   bool align_guess = true;
   double p = 1e5;
 
-#ifdef MEX
+#ifndef MEX
   igl::matlab::parse_rhs_double(prhs+0,V);
   igl::matlab::parse_rhs_index(prhs+1,F);
   igl::matlab::parse_rhs_index(prhs+2,b);
@@ -161,7 +161,7 @@ int main(int argc, char * argv[])
   igl::slim_solve(slim,iters);
   U = slim.V_o;
 
-#ifdef MEX
+#ifndef MEX
   switch(nlhs)
   {
     default:
